@@ -258,7 +258,7 @@ async function emb_openai(t: string, s: string): Promise<number[]> {
             body: JSON.stringify({
                 input: t,
                 model: env.openai_model || m,
-                dimensions: env.vec_dim,
+                ...(env.openai_base_url.includes("openai.com") ? { dimensions: env.vec_dim } : {}),
             }),
         },
     );
@@ -283,7 +283,7 @@ async function emb_batch_openai(
             body: JSON.stringify({
                 input: Object.values(txts),
                 model: env.openai_model || m,
-                dimensions: env.vec_dim,
+                ...(env.openai_base_url.includes("openai.com") ? { dimensions: env.vec_dim } : {}),
             }),
         },
     );
