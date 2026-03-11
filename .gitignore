@@ -24,3 +24,13 @@ test
 *.db
 hits.json
 debug_*.log
+
+# Internal workflow tooling (fork-specific, not for upstream)
+.claude/
+.github/prompts/
+.github/skills/
+.coderabbit.yaml
+openspec/
+CLAUDE.md
+CODE_PRINCIPLES.md
+docs/
